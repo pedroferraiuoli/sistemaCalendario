@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Análise de Dados e Gestão da Informação</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" crossorigin="anonymous">
+	
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>	
+  
+    <div class="w-50 mt-3" style="margin: 0 auto;">
+        {% if messages %}
+           <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %} style="text-align: center;">{{message}}</li>
+            {% endfor %}
+           </ul>
+        {% endif %}
+    </div>
+
+    
+    <ul class="nav justify-content-center p-4">
+        <div class="w-100 d-flex justify-content-end">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item mx-1"><a class="btn btn-secondary" href="/admin"><i class="bi bi-postcard-fill"></i> Painel</a></li>
+            <li class="nav-item mx-1"><a class="btn btn-secondary" href="{% url 'mudarSenha' %}"><i class="bi bi-person-circle"></i> {{request.user}}</a></li>
+
+            <li class="nav-item mx-1">
+            <form method="post" action="{% url 'logout' %}" class="logout">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger"><i class="bi bi-box-arrow-in-left"></i> Sair</button>
+            </form>
+        </li>
+            
+            {% else %}
+            <li class="nav-item mx-1"><a class="btn btn-secondary" href="{% url 'login' %}"> Login</a></li>
+            <li class="nav-item mx-1"><a class="btn btn-secondary" href="{% url 'register' %}"> Register</a></li>
+            {% endif %}
+        </div>
+    </ul>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

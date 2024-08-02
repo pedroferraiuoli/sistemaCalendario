@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body>
+    <div class="container no-border w-80">
+        {% if 'Responsavel' in request.META.HTTP_REFERER %}
+                <a class="btn btn-secondary" href="{% url 'calendarioResponsavel' %}">Voltar <i class="bi bi-calendar-date"></i></a>
+                {% else %}
+                <a class="btn btn-secondary" href="{% url 'calendario' %}">Voltar <i class="bi bi-calendar-date"></i></a>
+                {% endif %}
+                <div class="text-center">    
+
+                    <form method="dialog" class="detail-form">
+                        <div class="form-group">
+                            <div class="d-flex pb-3">
+                                <label class="form-label align-self-center w-19">Título: </label> {{form.titulo}}
+                            </div>
+                            <div class="d-flex pb-3">
+                               <label class="form-label align-self-center w-19">Data: </label> {{form.data_limite}}
+                            </div> 
+                            <div class="d-flex pb-3">
+                               <label class="form-label align-self-center w-19">Responsável: </label> {{form.responsavelEvento}}
+                            </div> 
+                            <div class="d-flex pb-3">
+                               <label class="form-label align-self-center w-19">Descrição: </label> {{form.descricao}}
+                            </div> 
+                            {% if evento.concluido %}
+                            <div class="d-flex pb-3">
+                                <label class="form-label align-self-center w-19">Data de conclusão: </label> {{form.dataConclusao}}
+                             </div> 
+                             {% else %}
+                             <div class="d-flex pb-3">
+                                <label class="form-label align-self-center w-19">Data de conclusão: </label> <input type="text" value="Evento ainda não foi concluido!" class="form-control" disabled required>
+                             </div> 
+                             {% endif %}
+                             {% if evento.observacao %}
+                             <div class="d-flex pb-3">
+                                <label class="form-label align-self-center w-19">Observação: </label> {{form.observacao}}
+                             </div> 
+                             {% endif %}
+                        </div>
+                       </form>
+                       <a class="btn btn-warning" href="{% url 'CalendarioEdit' evento.id %}" >Editar <i class="bi bi-pencil-fill"></i></a>
+                       <a class="btn btn-warning ms-5" href="{% url 'observacao' evento.id %}">Adicionar Observação <i class="bi bi-exclamation-triangle-fill"></i></a>
+                       <a href="{% url 'CalendarioConcluido' evento.id %}" class="btn btn-success ms-5" onclick="return confirm('Concluir evento?');">Marcar como concluído <i class="bi  bi-check-circle-fill"></i></a>
+                       <a href="{% url 'removeCalendario' evento.id %}" class="btn btn-danger ms-5" onclick="return confirm('Excluir evento?');">Excluir evento <i class="bi  bi-x-circle-fill"></i></a>
+             
+</body>
+
+{% endblock %}

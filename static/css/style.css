@@ -1,0 +1,229 @@
+
+body{
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  max-width: 1920px;
+  background-color: #003049;
+  margin: 0 auto;
+}
+
+
+.container {
+  border: #ffffff solid 1px;
+  border-radius: 15px;
+  margin-top: 0;
+  margin-bottom: 2%;
+  max-width: 96%;
+}
+
+
+form{
+    padding: 2%;
+    display: block;
+    margin: 1% auto;
+  }
+  
+form div{
+  margin: 1%;
+}
+
+.form-control{
+    min-width: 26rem;
+    margin-right: 2%;
+  }
+
+.add {
+  background-color: transparent;
+  padding-bottom: 1rem; 
+  width: 50%;
+}
+
+.form-labels {
+  align-self: center; 
+  width: 19%;
+}
+
+.label-login {
+  align-self: center;
+  width: 27%;
+}
+
+.w-5 {
+  width: 5%;
+}
+
+.logout {
+  width: max-content;
+  margin-top: -1px;
+}
+/* Calendario */
+
+.evento-overdue {
+  background-color: brown;
+  color: white;
+}
+.evento-3dias {
+  background-color: rgb(172, 172, 42);
+  color: black;
+}
+
+.fc-list-heading {
+  color: black; 
+}
+
+.card {
+  color: black;
+  max-height: 220px;
+  overflow: hidden;
+  min-height: 220px;
+  border-radius: 6px;
+}
+
+.card-red {
+  background-color: #A10702;
+  color: white;
+}
+
+.card-title {
+  max-height: 38px; 
+  overflow: hidden;
+}
+
+.card-subtitle, .card-text {
+  font-size: 15px;
+}
+
+.bt-card {
+  margin-top: auto;
+}
+
+.col-md-4 {
+  max-height: 810px;
+  overflow: auto;
+}
+
+.no-border {
+  border: none;
+}
+
+.voltar {
+  margin-top: -7.05rem;
+}
+
+.place-calendar {
+  margin-top: -24px;
+}
+
+.caixa-pesquisa {
+  border: 2px solid white; 
+  border-radius: 5px;
+}
+
+.espaco-pesquisa {
+  margin-left: 24px;
+}
+
+.menu-bt {
+  padding-bottom: 15px; 
+  place-content: center;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-19 {
+  width: 19%;
+}
+
+.detail-form {
+  padding-bottom: 1rem; 
+  background-color: rgba(114, 114, 114, 0.2); 
+  padding: 15px; 
+  border-radius: 10px;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: transparent;
+  color: white;
+  max-height: 8rem;
+}
+
+/* FullCalendar */
+
+#calendario {
+  width: 88%; 
+  margin: 0 auto;
+}
+
+.fc .fc-col-header-cell-cushion, .fc-daygrid-day-number, .fc-list-day-text, .fc-list-day-text:hover, .fc-list-day-side-text, .fc-list-day-side-text:hover{
+  color: white;
+  text-decoration: none;
+  padding: 0;
+}
+
+.fc .fc-daygrid-day-top {
+  place-content: center;
+}
+
+.fc .fc-day-other, .fc .fc-day-disabled {
+  visibility: hidden;
+}
+
+.fc-theme-standard .fc-list-day-cushion {
+  background-color: #15598d;
+}
+
+.fc .fc-button {
+  color: black;
+  background-color: white;
+  border-color: rgb(203 203 203);
+  height: 32px;
+  padding-top: 3px;
+  box-shadow: none !important;
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active, .fc .fc-button:hover {
+  background-color: rgb(236, 236, 236);
+  color: black;  
+  border-color: rgb(211, 211, 211);
+}
+
+.fc .fc-multimonth-daygrid, .fc .fc-list-table:hover td {
+  background-color: transparent;
+}
+
+.fc-theme-standard .fc-popover-header {
+  background: rgb(94, 94, 94);
+}
+
+.fc .fc-toolbar-title::first-letter {
+  text-transform: capitalize;
+}
+
+.fc .fc-button-primary:disabled {
+  background-color: #cdcdcd;
+  color: black;
+}
+
+.fc-col-header,  .fc-scrollgrid{
+border-radius: 5px !important;
+}
+
+.fc-scrollgrid-section > td {
+border-radius: 0px 0px 5px 5px !important
+}
+
+.fc-scrollgrid-section > th {
+border-radius: 0px 5px 0px 0px !important;
+}
+
+/* Fim FullCalendar */
+
+/* Fim Calendario */
+
+
+/* TextoDataLud */
+
+
+/* Fim TextoDataLud */

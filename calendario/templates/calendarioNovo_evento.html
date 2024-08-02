@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+   <div class="container text-center">
+    <div class="w-5">
+        <a class="btn btn-secondary voltar" href="{% url 'calendarioBase' %}">Voltar <i class="bi bi-calendar-date"></i></a>  
+        </div>
+       {% if "CalendarioEdit" in request.get_full_path %}
+       <h1>Editar evento</h1>
+       {% elif "observacao" in request.get_full_path %}
+       <h1>Adicionar observação</h1>
+       {% else %}
+       <h1>Adicionar evento</h1>
+       {% endif %}
+
+<div id="first" class="form-group d-flex">
+       <form method="post" class="add">
+           {% csrf_token %}
+           <div class="form-group">
+            {% if "observacao" in request.get_full_path %}
+            <div class="d-flex mb-3">
+                <label for="obs" class="form-label">Observação:</label>
+                <input type="text" class="form-control" name="obs" id="obs">
+            </div> 
+            {% else %}
+            <div class="d-flex mb-3">
+                <label for="{{ form.titulo.auto_id }}" class="form-labels">{{form.titulo.label}}: </label> {{form.titulo}}
+            </div>
+            <div class="d-flex mb-3">
+            <label for="{{ form.data_limite.auto_id }}" class="form-labels">{{form.data_limite.label}}: </label> {{form.data_limite}}
+            </div>
+        <div class="d-flex mb-3">
+            <label for="{{ form.recorrencia.auto_id }}" class="form-labels">{{form.recorrencia.label}}: </label> {{form.recorrencia}}
+        </div> 
+            <div class="d-flex mb-3">
+                <label for="{{ form.responsavelEvento.auto_id }}" class="form-labels">{{form.responsavelEvento.label}}: </label> {{form.responsavelEvento}}
+            </div> 
+            <div class="d-flex mb-3">
+                <label for="{{ form.descricao.auto_id }}" class="form-labels">{{form.descricao.label}}: </label> {{form.descricao}}
+            </div> 
+            {% if "CalendarioEdit" in request.get_full_path %}
+            <div class="d-flex mb-3">
+                <label for="{{ form.observacao.auto_id }}" class="form-labels">{{form.observacao.label}}: </label> {{form.observacao}}
+            </div> 
+            <div class="d-flex mb-3">
+                <label for="{{ form.concluido.auto_id }}" class="form-labels">{{form.concluido.label}}: </label> {{form.concluido}}
+            </div> 
+            <div class="d-none mb-3">
+                <label for="{{ form.dataConclusao.auto_id }}" class="form-labels">{{form.dataConclusao.label}}: </label> {{form.dataConclusao}}
+            </div> 
+            {% endif %}
+            {% endif %}
+        </div>
+            
+           <input type="submit" class="btn btn-success mt-2" value="Enviar">
+           
+        </div>
+        </form>
+
+   </div>
+</div>
+
+{% endblock %}

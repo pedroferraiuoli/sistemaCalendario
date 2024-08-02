@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+   <div class="container text-center">
+       <h1 style="padding-top: 0.3rem;">Calendário</h1>
+
+<div class="w-50 m-auto mb-4 mt-4">
+            <div class="menu-bt">
+                <a href="{% url 'calendario' %}" class="btn btn-success w-50">Calendário</a>
+            </div> 
+            <div class="menu-bt">
+                <a href="{% url 'calendarioResponsavel' %}" class="btn btn-success w-50">Seu calendário</a>
+            </div> 
+            <div class="menu-bt">
+                <a href="{% url 'novo_evento' %}" class="btn btn-success w-50">Adicionar evento</a>
+            </div> 
+    
+        </div>
+</div>
+
+{% endblock %}
